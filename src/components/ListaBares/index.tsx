@@ -1,4 +1,4 @@
-import Restaurante from '../Local'
+import Bars from '../Local'
 import { Container, Listagem } from './styles'
 
 type Props = {
@@ -12,7 +12,7 @@ const BarsList = ({ Bares }: Props) => {
         <Listagem>
           {Bares.map((b) => (
             <li key={b.id}>
-              <Restaurante
+              <Bars
                 titulo={b.titulo}
                 id={b.id}
                 capa={b.capa}

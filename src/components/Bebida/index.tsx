@@ -26,7 +26,7 @@ const Bebida = ({ bebida }: Props) => {
 
   return (
     <>
-      <S.Card>
+      <S.Card onClick={() => setModalAberta(true)}>
         <S.Imagem src={bebida.foto} alt="" />
         <S.Nome>{bebida.nome}</S.Nome>
         <S.Desricao>{bebida.descricao}</S.Desricao>

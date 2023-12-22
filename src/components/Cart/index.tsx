@@ -184,7 +184,9 @@ const Cart = () => {
                           type="text"
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
-                          className={checkInputHasError('nome') ? 'error' : ''}
+                          className={
+                            checkInputHasError('nome') ? 'error' : 'olha o erro'
+                          }
                           value={form.values.nome}
                         />
                       </S.InputGroup>
