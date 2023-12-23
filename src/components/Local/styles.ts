@@ -8,7 +8,7 @@ export const Card = styled.div`
   border: none;
   border-radius: 0.75rem;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.35);
-  margin: 0.5rem auto;
+  margin: 0 auto;
   gap: 2rem;
 
   img {

@@ -30,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .container {
-    margin: 2rem 15rem;
+    margin: 0 auto;
     max-width: 100vw;
   }
 `

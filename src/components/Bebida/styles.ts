@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { Colors } from '../../style'
 
 export const Card = styled.div`
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr;
   max-width: 320px;
   max-height: 340px;
   height: 100%;
@@ -9,6 +11,10 @@ export const Card = styled.div`
   background-color: ${Colors.darkGreen};
   color: ${Colors.whiteSecondary};
   border-radius: 0.35rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 
   &:hover {
     box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.5);
@@ -71,6 +77,11 @@ export const Modal = styled.div`
     height: 100%;
     background-color: rgba(0, 0, 0, 0.73);
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const ModalContent = styled.div`
@@ -81,13 +92,34 @@ export const ModalContent = styled.div`
   background-color: ${Colors.darkGreen};
   justify-content: center;
   align-items: center;
+  border-radius: 0.75rem;
 
   max-width: 1024px;
   display: flex;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    max-width: 320px;
+  }
+
+  @media (min-width: 769px) {
+    flex-direction: column;
+    max-width: 640px;
+  }
+
   h4 {
     font-size: 1.5rem;
     color: ${Colors.white};
+
+    @media (max-width: 768px) {
+      font-size: 1.25rem;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 769px) {
+      text-align: center;
+      margin-top: 8px;
+    }
   }
 
   p {
@@ -96,6 +128,10 @@ export const ModalContent = styled.div`
     line-height: 1.5rem;
     padding-top: 0.875rem;
     padding-bottom: 0.875rem;
+
+    @media (min-width: 769px) {
+      text-align: center;
+    }
   }
 
   img {
@@ -104,11 +140,40 @@ export const ModalContent = styled.div`
     width: 360px;
     height: 360px;
     border-radius: 0.5rem;
+
+    @media (max-width: 768px) {
+      margin: 8px;
+      max-height: 248px;
+      max-width: 248px;
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      object-fit: cover;
+    }
+
+    @media (min-width: 769px) {
+      margin: 8px;
+      max-height: 360px;
+      max-width: 360px;
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      object-fit: cover;
+      border-radius: 0.5rem;
+    }
   }
 
   ${Botao} {
     width: max-content;
     padding: 0.5rem;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+
+    @media (min-width: 769px) {
+      width: 100%;
+    }
   }
 
   .close-icon {

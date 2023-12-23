@@ -7,19 +7,20 @@ export const Cabecalho = styled.header`
   flex-direction: column;
   align-items: center;
   padding: 2rem;
+  width: 100%;
 `
 
 export const ResCabecalho = styled.header`
   background-color: ${Colors.gray};
-  margin-top: -2.25rem;
-  padding: 0.5rem 0;
+  width: 100%;
 `
 
 export const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 1rem;
   align-items: center;
+  width: 100%;
 
   p {
     cursor: pointer;
@@ -31,6 +32,12 @@ export const Slogan = styled.h1`
   font-size: 1.75rem;
   font-weigth: bold;
   margin: 0.5rem;
+
+  @media (min-width: 320px) {
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+  }
 `
 
 export const Banner = styled.div`
@@ -51,12 +58,11 @@ export const Blur = styled.div`
 
 export const Idem = styled.div`
   height: 280px;
-  padding-top: 24px;
-  padding-bottom: 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: ${Colors.white};
+  padding: 1.5rem;
 
   h1 {
     color: ${Colors.white};

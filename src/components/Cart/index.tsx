@@ -372,6 +372,7 @@ const Cart = () => {
                       disabled={isLoading}
                       className="margin-top"
                       type="submit"
+                      onClick={() => form.handleSubmit()}
                     >
                       {isLoading
                         ? 'Finalizando pagamento'

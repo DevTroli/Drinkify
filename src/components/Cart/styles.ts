@@ -54,6 +54,16 @@ export const SideBar = styled.aside`
   .center {
     text-align: center;
   }
+
+  @media (max-width: 768px) {
+    max-width: 260px;
+    width: 100%;
+  }
+
+  @media (min-width: 769px) {
+    max-width: 364px;
+    width: 100%;
+  }
 `
 
 export const CartItem = styled.li`
@@ -100,7 +110,7 @@ export const Qtty = styled.p`
 
 export const Botao = styled.button`
   width: 100%;
-  padding: 4px;
+  padding: 6px;
   border: none;
   border-radius: 0.5rem;
   background-color: ${Colors.green};
@@ -108,6 +118,7 @@ export const Botao = styled.button`
   margin-bottom: 8px;
   height: 24px;
   color: ${Colors.whiteSecondary};
+  text-align: center;
 `
 
 export const Conteudo = styled.form`
