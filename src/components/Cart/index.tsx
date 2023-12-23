@@ -10,7 +10,6 @@ import { RootReducer } from '../../store'
 import { formataPreco } from '../Bebida'
 
 import * as S from './styles'
-import { CartEmpty } from '../cartEmpty'
 
 const Cart = () => {
   const { isOpen, itens } = useSelector((state: RootReducer) => state.cart)
@@ -137,22 +136,14 @@ const Cart = () => {
                     <ul>
                       {itens.map((i) => (
                         <S.CartItem key={i.id}>
-                          <img src={i.foto} alt="Foto do item" />
+                          <img src={i.foto} alt="" />
                           <div>
                             <h4>{i.nome}</h4>
-                            <p style={{ fontSize: '1rem', fontWeight: 'bold' }}>
-                              {formataPreco(i.preco)}
-                            </p>
+                            <p>{formataPreco(i.preco)}</p>
                             <img
                               onClick={() => dispatch(remove(i.id))}
                               src="/lixeira.png"
                               alt="Remover item do carrinho"
-                              width={36}
-                              height={36}
-                              style={{
-                                objectFit: 'contain',
-                                borderRadius: '1rem'
-                              }}
                             />
                           </div>
                         </S.CartItem>
@@ -167,7 +158,9 @@ const Cart = () => {
                     </S.Botao>
                   </>
                 ) : (
-                  <CartEmpty />
+                  <p className="center">
+                    Adicione um item no carrinho para prosseguir com seu pedido
+                  </p>
                 )}
               </>
             ) : (
@@ -184,9 +177,7 @@ const Cart = () => {
                           type="text"
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
-                          className={
-                            checkInputHasError('nome') ? 'error' : 'olha o erro'
-                          }
+                          className={checkInputHasError('nome') ? 'error' : ''}
                           value={form.values.nome}
                         />
                       </S.InputGroup>
@@ -368,15 +359,10 @@ const Cart = () => {
                         />
                       </S.InputGroup>
                     </S.Row>
-                    <S.Botao
-                      disabled={isLoading}
-                      className="margin-top"
-                      type="submit"
-                      onClick={() => form.handleSubmit()}
-                    >
-                      {isLoading
-                        ? 'Finalizando pagamento'
-                        : 'Finalizar pagamento'}
+                    <S.Botao className="margin-top" type="submit">
+                      <span style={{ color: 'white' }}>
+                        Finalizando pagamento
+                      </span>
                     </S.Botao>
                     <S.Botao type="button" onClick={() => setIsPaying(false)}>
                       Voltar para a edição de endereço
@@ -388,24 +374,24 @@ const Cart = () => {
           </>
         ) : (
           <>
-            <h3>Olá Querido cliente</h3>
+            <h3>Pedido realizado - {data?.orderId}</h3>
             <p>
-              Estamos felizes com seu pedido {data?.orderId} e já está em
-              processo de preparação e, em breve, será entregue no endereço
-              fornecido.
+              Estamos felizes em informar que seu pedido já está em processo de
+              preparação e, em breve, será entregue no endereço fornecido.{' '}
               <br />
               <br />
               Gostaríamos de ressaltar que nossos entregadores não estão
               autorizados a realizar cobranças extras.
               <br />
               <br /> Lembre-se da importância de higienizar as mãos após o
-              recebimento do pedido, garantindo assim sua segurança e bem-estado{' '}
+              recebimento do pedido, garantindo assim sua segurança e bem-estar
+              durante a refeição. <br />
+              <br />
+              Esperamos que desfrute de uma deliciosa e agradável experiência
+              gastronômica.
               <br />
               <br />
-              Esperamos que desfrute de uma deliciosa e agradável bebida
-              <br />
-              <br />
-              Um Brinde a você!!
+              Bom apetite!
             </p>
             <S.Botao
               className="margin-top"

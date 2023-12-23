@@ -27,7 +27,7 @@ const Bebida = ({ bebida }: Props) => {
   return (
     <>
       <S.Card onClick={() => setModalAberta(true)}>
-        <S.Imagem src={bebida.foto} alt="" />
+        <S.Imagem src={bebida.foto} alt={bebida.nome} />
         <S.Nome>{bebida.nome}</S.Nome>
         <S.Desricao>{bebida.descricao}</S.Desricao>
         <S.Botao onClick={() => setModalAberta(true)}>COMPRE JÁ</S.Botao>
