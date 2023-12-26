@@ -113,7 +113,6 @@ export const ModalContent = styled.div`
 
     @media (max-width: 768px) {
       font-size: 1.25rem;
-      margin-top: 8px;
     }
 
     @media (min-width: 769px) {

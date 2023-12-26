@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-  padding: 1rem;
+  padding: 2rem;
 `
 
 export const Listagem = styled.ul`
@@ -9,14 +9,10 @@ export const Listagem = styled.ul`
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   align-items: center;
-  margin: 0.5rem auto;
+  margin: 0 112px;
   gap: 2rem;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-  }
-
-  @media (min-width: 769px) {
-    grid-template-columns: 1fr 1fr;
   }
 `

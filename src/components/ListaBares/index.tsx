@@ -11,7 +11,7 @@ const BarsList = ({ Bares }: Props) => {
       <div className="container">
         <Listagem>
           {Bares.map((b) => (
-            <li key={b.id}>
+            <li style={{ maxWidth: '300px', width: '100%' }} key={b.id}>
               <Bars
                 titulo={b.titulo}
                 id={b.id}

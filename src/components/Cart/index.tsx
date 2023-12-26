@@ -10,6 +10,7 @@ import { RootReducer } from '../../store'
 import { formataPreco } from '../Bebida'
 
 import * as S from './styles'
+import { CartEmpty } from '../cartEmpty'
 
 const Cart = () => {
   const { isOpen, itens } = useSelector((state: RootReducer) => state.cart)
@@ -74,10 +75,6 @@ const Cart = () => {
     }),
     onSubmit: (values) => {
       purchase({
-        products: itens.map((i) => ({
-          id: i.id,
-          price: i.preco
-        })),
         delivery: {
           receiver: values.nome,
           address: {
@@ -98,7 +95,11 @@ const Cart = () => {
               year: Number(values.anoVenc)
             }
           }
-        }
+        },
+        products: itens.map((item) => ({
+          id: item.id,
+          price: item.preco as number
+        }))
       })
     }
   })
@@ -158,9 +159,7 @@ const Cart = () => {
                     </S.Botao>
                   </>
                 ) : (
-                  <p className="center">
-                    Adicione um item no carrinho para prosseguir com seu pedido
-                  </p>
+                  <CartEmpty />
                 )}
               </>
             ) : (
@@ -359,10 +358,15 @@ const Cart = () => {
                         />
                       </S.InputGroup>
                     </S.Row>
-                    <S.Botao className="margin-top" type="submit">
-                      <span style={{ color: 'white' }}>
-                        Finalizando pagamento
-                      </span>
+                    <S.Botao
+                      className="margin-top"
+                      type="submit"
+                      onClick={() => form.handleSubmit()}
+                      disabled={isLoading}
+                    >
+                      {isLoading
+                        ? 'Finalizando o pedido...'
+                        : 'Finalizar o pedido'}
                     </S.Botao>
                     <S.Botao type="button" onClick={() => setIsPaying(false)}>
                       Voltar para a edição de endereço

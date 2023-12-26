@@ -33,7 +33,7 @@ export const Slogan = styled.h1`
   font-weigth: bold;
   margin: 0.5rem;
 
-  @media (min-width: 320px) {
+  @media (max-width: 769px) {
     font-size: 1rem;
     font-weight: bold;
     width: 100%;
